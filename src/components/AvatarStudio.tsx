@@ -34,9 +34,9 @@ export function AvatarStudio() {
   const [accessories, setAccessories] = useState<string>("");
   const [background, setBackground] = useState<string>("");
   const [autoClusterStyle, setAutoClusterStyle] = useState(true);
-  const [fullName, setFullName] = useState("Oksana Kovalenko");
-  const [bio, setBio] = useState("Graduate researcher exploring community storytelling with AI visuals.");
-  const [socialUrl, setSocialUrl] = useState("https://t.me/thesis_lab");
+  const [fullName, setFullName] = useState();
+  const [bio, setBio] = useState();
+  const [socialUrl, setSocialUrl] = useState();
   const [avatarPhoto, setAvatarPhoto] = useState<string | null>(null);
   const [results, setResults] = useState<AvatarResult[]>([]);
   const [activity, setActivity] = useState<ActivityItem[]>([]);
@@ -148,11 +148,8 @@ export function AvatarStudio() {
       <header className="studio__header">
         <div className="studio__title">
           <div className="studio__badge">Master Thesis Lab</div>
-          <h1>Craft avatars tuned to your research narrative</h1>
-          <p>
-            This studio curates visual personas for a magistracy diploma project. All computation runs locally so the
-            narrative remains reproducible even without backend infrastructure.
-          </p>
+          <h1>Make avatars</h1>
+          <p>This tool creates visual characters for a master’s diploma project. All processing runs on your computer, so results stay reproducible without servers.</p>
         </div>
         <div className="studio__status">
           <button type="button" className="ghost-button" onClick={onCheckHealth}>
@@ -222,9 +219,9 @@ export function AvatarStudio() {
                 ))}
               </select>
             </div>
-            <div className="field field--checkbox">
-              <input id="auto-style" type="checkbox" checked={autoClusterStyle} onChange={(event) => setAutoClusterStyle(event.target.checked)} />
-              <label htmlFor="auto-style">Keep stylistic balance for the thesis gallery</label>
+            <div className="w-full">
+              <label htmlFor="auto-style">Keep stylistic balance for the gallery</label>
+              <input id="auto-style" type="checkbox" className="ml-6" checked={autoClusterStyle} onChange={(event) => setAutoClusterStyle(event.target.checked)} />
             </div>
           </div>
         </section>
@@ -246,9 +243,9 @@ export function AvatarStudio() {
         <section className="panel">
           <h2>Render portrait</h2>
           <div className="generate-actions">
-            <label className="field field--checkbox">
-              <input type="checkbox" checked={Boolean(seed)} onChange={(event) => setSeed(event.target.checked ? 42 : null)} />
-              <span>Lock deterministic seed (42) for reproducibility chapter.</span>
+            <label>
+              <span>Lock deterministic seed (42) for reproducibility chapter</span>
+              <input type="checkbox" className="ml-2" checked={Boolean(seed)} onChange={(event) => setSeed(event.target.checked ? 42 : null)} />
             </label>
             <button type="button" className="primary-button" onClick={onGenerate} disabled={loading}>
               {loading ? "Synthesizing..." : "Generate thesis avatar"}
