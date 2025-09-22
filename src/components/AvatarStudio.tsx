@@ -34,9 +34,9 @@ export function AvatarStudio() {
   const [accessories, setAccessories] = useState<string>("");
   const [background, setBackground] = useState<string>("");
   const [autoClusterStyle, setAutoClusterStyle] = useState(true);
-  const [fullName, setFullName] = useState("Oksana Kovalenko");
-  const [bio, setBio] = useState("Graduate researcher exploring community storytelling with AI visuals.");
-  const [socialUrl, setSocialUrl] = useState("https://t.me/thesis_lab");
+  const [fullName, setFullName] = useState();
+  const [bio, setBio] = useState();
+  const [socialUrl, setSocialUrl] = useState();
   const [avatarPhoto, setAvatarPhoto] = useState<string | null>(null);
   const [results, setResults] = useState<AvatarResult[]>([]);
   const [activity, setActivity] = useState<ActivityItem[]>([]);
@@ -148,11 +148,8 @@ export function AvatarStudio() {
       <header className="studio__header">
         <div className="studio__title">
           <div className="studio__badge">Master Thesis Lab</div>
-          <h1>Craft avatars tuned to your research narrative</h1>
-          <p>
-            This studio curates visual personas for a magistracy diploma project. All computation runs locally so the
-            narrative remains reproducible even without backend infrastructure.
-          </p>
+          <h1>Make avatars</h1>
+          <p>This tool creates visual characters for a master’s diploma project. All processing runs on your computer, so results stay reproducible without servers.</p>
         </div>
         <div className="studio__status">
           <button type="button" className="ghost-button" onClick={onCheckHealth}>

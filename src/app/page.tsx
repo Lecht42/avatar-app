@@ -4,7 +4,6 @@ import { AvatarStudio } from "@/components/AvatarStudio";
 import VectorizeForm from "@/components/VectorizeForm";
 import ClusterForm from "@/components/ClusterForm";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { LanguageSwitcher } from "@/i18n/I18nProvider";
 
 const tabs = [
   { id: "avatar", label: "Avatar Studio" },
@@ -32,10 +31,6 @@ export default function Home() {
               {tab.label}
             </button>
           ))}
-        </div>
-        <div className="home__actions">
-          <LanguageSwitcher />
-          <ThemeToggle />
         </div>
       </nav>
 
